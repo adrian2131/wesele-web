@@ -117,19 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-(function () {
-    const el = document.createElement("div");
-    el.style.cssText = "position:fixed;left:8px;bottom:8px;z-index:9999;background:#000;color:#fff;padding:6px 8px;font:12px system-ui;border-radius:8px;opacity:.75";
-    document.body.appendChild(el);
-
-    function update() {
-        const vv = window.visualViewport;
-        el.textContent =
-            `innerH:${window.innerHeight} | vvH:${vv ? Math.round(vv.height) : "n/a"} | vvOff:${vv ? Math.round(vv.offsetTop) : "n/a"}`;
-    }
-
-    update();
-    window.addEventListener("resize", update);
-    window.visualViewport?.addEventListener("resize", update);
-    window.visualViewport?.addEventListener("scroll", update);
+(function setVhVar() {
+    const set = () => {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    set();
+    window.addEventListener("resize", set);
 })();

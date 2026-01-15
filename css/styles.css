@@ -121,7 +121,7 @@ section {
 
 /* Cover full-screen */
 .cover {
-    min-height: 100svh;
+    min-height: calc(var(--vh, 1vh) * 100);
     max-width: var(--container-max);
     display: flex;
     flex-direction: column;
