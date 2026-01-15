@@ -55,7 +55,7 @@ body {
 
 /* tło dekoracyjne */
 .floral {
-    position: fixed;
+    position: absolute;
     inset: 0;
     background:
         radial-gradient(240px 240px at 10% 20%, rgba(176, 123, 131, .10), transparent 60%),
