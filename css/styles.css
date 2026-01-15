@@ -69,7 +69,7 @@ body {
 .wrap {
     max-width: var(--container-max);
     margin: 0 auto;
-    padding: 0 16px 60px;
+    padding: 0 0 60px;
     position: relative;
 }
 
@@ -535,10 +535,10 @@ input[type="text"],
 textarea {
     font-family: var(--ui-font);
     padding: 12px 12px;
-    border-radius: 14px;
+    border-radius: 16px;
     border: 1px solid var(--line);
     background: #fff;
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
 }
 
@@ -550,7 +550,7 @@ textarea {
 .checks {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px 14px;
+    gap: 10px 16px;
 
 }
 

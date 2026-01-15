@@ -75,8 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             status.style.display = "block";
             status.textContent = "Daj nam znać jak się nazywasz.";
-            nameInput.focus();
-            nameInput.scrollIntoView({ behavior: "smooth", block: "center" });
             return;
         }
 
