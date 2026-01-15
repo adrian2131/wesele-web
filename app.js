@@ -33,7 +33,7 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// ====== HERO SCROLL HINT ======
+// ====== COVER SCROLL HINT ======
 document.querySelectorAll("[data-scrollto]").forEach(btn => {
     btn.addEventListener("click", () => {
         const target = btn.getAttribute("data-scrollto");
@@ -42,13 +42,80 @@ document.querySelectorAll("[data-scrollto]").forEach(btn => {
     });
 });
 
-// ====== RSVP (DEMO) ======
-const form = document.getElementById("rsvpForm");
-const status = document.getElementById("formStatus");
+// ====== SHOW TEXT FIELD ======
+document.addEventListener("DOMContentLoaded", () => {
+    const checkbox = document.getElementById("special");
+    const field = document.getElementById("specialField");
 
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    status.style.display = "block";
-    status.textContent = "Dziękujemy! Formularz działa w trybie testowym. Podłączymy wysyłkę (e-mail/Sheets) w kolejnym kroku.";
-    form.reset();
+    if (!checkbox || !field) return;
+
+    checkbox.addEventListener("change", () => {
+        field.style.display = checkbox.checked ? "block" : "none";
+    });
+});
+
+// ====== RSVP (WALIDACJA) ======
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("rsvpForm");
+    const nameInput = document.getElementById("name");
+    const status = document.getElementById("formStatus");
+    const alcoholField = document.getElementById("alcoholField");
+    const alcoholCheckboxes = Array.from(document.querySelectorAll('input[name="alcohol[]"]'));
+
+    if (!form || !status || !nameInput) return;
+
+    form.addEventListener("submit", (e) => {
+        // reset komunikatu
+        status.style.display = "none";
+        status.textContent = "";
+
+        // 0) WALIDACJA IMIENIA
+        const nameValue = nameInput.value.trim();
+        if (nameValue.length < 3) {
+            e.preventDefault();
+            status.style.display = "block";
+            status.textContent = "Daj nam znać jak się nazywasz.";
+            nameInput.focus();
+            nameInput.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        // 1) WALIDACJA: minimum 1 checkbox z grupy alcohol[]
+        const atLeastOne = alcoholCheckboxes.some(cb => cb.checked);
+        if (!atLeastOne) {
+            e.preventDefault();
+            status.style.display = "block";
+            status.textContent = "Wybierz przynajmniej jedną opcję w sekcji napojów.";
+            alcoholField?.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        // 2) TRYB DEMO (blokujemy wysyłkę, ale tylko gdy walidacja OK)
+        e.preventDefault();
+        status.style.display = "block";
+        status.textContent =
+            "Dziękujemy za twoją wiadomość!";
+        form.reset();
+
+        // po resecie ukryj pole special
+        document.getElementById("specialField")?.style.setProperty("display", "none");
+    });
+
+    // Bonus: jeśli ktoś zaznaczy cokolwiek, chowamy komunikat błędu (dla alkoholu)
+    alcoholCheckboxes.forEach(cb => {
+        cb.addEventListener("change", () => {
+            if (alcoholCheckboxes.some(x => x.checked)) {
+                status.style.display = "none";
+                status.textContent = "";
+            }
+        });
+    });
+
+    // Bonus 2: jak ktoś zacznie wpisywać imię, też chowamy komunikat
+    nameInput.addEventListener("input", () => {
+        if (nameInput.value.trim().length >= 3) {
+            status.style.display = "none";
+            status.textContent = "";
+        }
+    });
 });

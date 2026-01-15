@@ -1,18 +1,39 @@
-@import url('./pencerio.css');
-@import url('./dancing-script.css');
+/* 
+=========================================================
+   DESIGN (kolory / fonty / rozmiary / odstępy)
+========================================================= 
+*/
 
 :root {
+    /* Colors */
     --bg: #fbfaf8;
     --card: #ffffffcc;
     --ink: #3b2b2b;
     --muted: #7c6a6a;
-    --accent: #b07b83;
+    --accent: #8A82A9;
     --line: #e9dfdc;
-    --radius: 18px;
-    --shadow: 0 12px 28px rgba(0, 0, 0, .08);
-    --max: 520px;
-    --font: ui-serif, "Georgia", "Times New Roman", serif;
-    --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+
+    /* Fonts */
+    --text-font: ui-serif, "Georgia", "Times New Roman", serif;
+    --ui-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+
+    /* Shadows / radius */
+    --shadow-md: 0 12px 28px rgba(0, 0, 0, 0, 0.08);
+    --radius-md: 14px;
+    --radius-lg: 18px;
+    --radius-xl: 20px;
+
+    /* Layout */
+    --container-max: 520px;
+
+    /* Spacing */
+    --space-1: 6px;
+    --space-2: 10px;
+    --space-3: 14px;
+    --space-4: 18px;
+    --space-5: 26px;
+    --space-6: 34px;
+    --space-7: 58px;
 }
 
 * {
@@ -23,16 +44,16 @@ body {
     margin: 0;
     background: radial-gradient(1200px 800px at 50% -200px, #fff, var(--bg));
     color: var(--ink);
-    font-family: var(--font);
+    font-family: var(--text-font);
 }
 
-.great-vibes-regular {
+.great-vibes {
     font-family: "Great Vibes", cursive;
     font-weight: 400;
     font-style: normal;
 }
 
-
+/* tło dekoracyjne */
 .floral {
     position: fixed;
     inset: 0;
@@ -44,16 +65,64 @@ body {
     z-index: -1;
 }
 
+/* kontener strony */
 .wrap {
-    max-width: var(--max);
+    max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 16px 60px;
     position: relative;
 }
 
-/* HERO full-screen */
-.hero {
+/* 
+=========================================================
+   TYPOGRAFIA (sekcje)
+========================================================= 
+*/
+
+section {
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.title {
+    margin: 0 0 8px;
+    font-size: 32px;
+    text-align: center;
+    color: var(--ink);
+    font-weight: 400;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--ui-font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.label {
+    text-align: center;
+    font-family: var(--ui-font);
+    font-size: 12px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+/* 
+=========================================================
+   Cover (full screen)
+========================================================= 
+*/
+
+/* Cover full-screen */
+.cover {
     min-height: 100dvh;
+    max-width: var(--container-max);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,62 +132,113 @@ body {
     margin: 0 auto;
 }
 
-.heroCard {
+.coverBG {
+    background: url("../images/hero.png") center / 125% no-repeat;
+    background-position: center top;
+}
+
+.coverCard {
     width: min(78%, 360px);
-    min-height: 56vh;
+    min-height: 60vh;
     padding: 42px 0px 48px;
     border-radius: 999px;
 
     background: #fff;
     border: 1px solid var(--line);
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-md);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
 }
 
-.heroKicker {
+.coverCard::before {
+    content: "";
+    position: absolute;
+    width: 40%;
+    height: 200%;
+    background-image: linear-gradient(180deg,
+            #8A82A9,
+            #B8B2D6,
+            #E6E3F3,
+            #B8B2D6,
+            #8A82A9);
+    animation: rotateGlow 4s linear infinite;
+    transition: all 0.2s linear;
+}
+
+
+
+.coverCard>* {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes rotateGlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.coverCard::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: #fff;
+    border-radius: 999px;
+    z-index: 1;
+}
+
+.coverTitle {
     font-size: 32px;
     color: var(--ink);
     margin-bottom: 22px;
 }
 
-.heroNames {
-    font-size: 20px;
+.coverNames {
+    font-size: 24px;
     letter-spacing: .18em;
     line-height: 1.2;
     margin-bottom: 20px;
     white-space: nowrap;
 }
 
-.heroSub {
-    font-family: var(--font);
+.coverSubtitle {
+    font-family: var(--text-font);
     font-style: italic;
     font-size: 17px;
     color: var(--muted);
     margin-bottom: 36px;
 }
 
-.heroDate {
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: .20em;
+.coverDate {
+    font-family: var(--ui-font);
+    font-size: 14px;
+    letter-spacing: .21em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 10px;
 }
 
-.heroYear {
-    font-family: var(--sans);
-    font-size: 13px;
-    letter-spacing: .42em;
+.coverYear {
+    font-family: var(--ui-font);
+    font-size: 14px;
+    letter-spacing: .41em;
+    margin-left: 13px;
+    padding-top: 10px;
     color: var(--muted);
 }
 
-.heroScrollHint {
+.coverScrollHint {
     position: absolute;
     bottom: 16px;
     left: 50%;
@@ -133,28 +253,21 @@ body {
     padding: 10px 12px;
 }
 
-.hintText {
-    font-family: var(--sans);
+.coverText {
+    font-family: var(--ui-font);
     font-size: 11px;
     letter-spacing: .22em;
     color: var(--muted);
     text-transform: uppercase;
 }
 
-.hintArrow {
-    font-family: var(--sans);
+.coverArrow {
+    font-family: var(--ui-font);
     font-size: 24px;
     color: var(--accent);
     line-height: 1;
     animation: bounceDown 1.25s infinite;
 }
-
-
-.heroPhoto {
-    background: url("../images/hero.png") center / 125% no-repeat;
-    background-position: center top;
-}
-
 
 @keyframes bounceDown {
 
@@ -170,54 +283,22 @@ body {
     }
 }
 
+/* 
+=========================================================
+   COUNTDOWN
+========================================================= 
+*/
 
-section {
-    margin-top: 34px;
-    padding: 0 6px;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    backdrop-filter: none;
-}
-
-h2 {
-    margin: 0 0 8px;
-    font-size: 32px;
-    text-align: center;
-    color: var(--ink);
-}
-
-.lead {
-    text-align: center;
-    color: var(--muted);
-    margin: 0 0 58px;
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-.kicker {
-    text-align: center;
-    font-family: var(--sans);
-    font-size: 12px;
-    letter-spacing: .28em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 10px;
-}
-
-/* COUNTDOWN */
 #countdown {
     margin-top: 80px;
     margin-bottom: 150px;
 }
 
-#countdown h2 {
+#countdown .title {
     margin-bottom: 40px;
 }
 
-#countdown .lead {
+#countdown .label {
     margin-bottom: 34px;
 }
 
@@ -246,7 +327,7 @@ h2 {
 }
 
 .cdLabel {
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     font-size: 11px;
     letter-spacing: .22em;
     text-transform: uppercase;
@@ -254,14 +335,23 @@ h2 {
     text-align: center;
 }
 
-/* LOCATION – jedna karta jak w inspiracji */
+/* 
+=========================================================
+   LOCATION
+========================================================= 
+*/
+#location {
+    margin-top: 80px;
+    margin-bottom: 150px;
+}
+
 .locCard {
     background: rgba(255, 255, 255, .78);
     border: 1px solid var(--line);
     border-radius: 20px;
     padding: 18px 16px;
     box-shadow: var(--shadow);
-    margin-top: 18px;
+    margin-top: 50px;
 }
 
 .locBlock {
@@ -284,22 +374,23 @@ h2 {
 .locTitle {
     font-size: 26px;
     margin-bottom: 8px;
+    color: var(--text);
 }
 
 .locAddress {
-    margin-bottom: 10px;
-}
-
-.locLine {
+    font-family: var(--ui-font);
     font-size: 14px;
+    margin-bottom: 15px;
     line-height: 1.35;
 }
 
-.locLine.muted {
+.locLine {
     color: var(--muted);
 }
 
 .locMeta {
+    font-family: var(--ui-font);
+    font-size: 14px;
     display: flex;
     justify-content: center;
     margin: 10px 0 14px;
@@ -310,14 +401,13 @@ h2 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
 }
 
 .map {
     width: 100%;
     height: 200px;
     border: 0;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     background: #fff;
     margin-top: 10px;
@@ -333,16 +423,21 @@ h2 {
     margin-top: 12px;
 }
 
-/* PROGRAM DNIA – timeline */
+/* 
+=========================================================
+   SCHEDULE (program dnia)
+========================================================= 
+*/
+
 #schedule {
-    margin-top: 60px;
+    margin-top: 80px;
+    margin-bottom: 150px;
 }
 
 .timeline {
     position: relative;
-    margin-top: 26px;
+    margin-top: 50px;
     padding-left: 58px;
-    /* miejsce na linię i ikonki */
 }
 
 /* pionowa linia */
@@ -364,7 +459,6 @@ h2 {
     margin: 18px 0;
 }
 
-/* prawa strona */
 .tContent {
     width: 100%;
     padding: 2px 0 0;
@@ -377,7 +471,7 @@ h2 {
 }
 
 .tTime {
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     font-size: 12px;
     letter-spacing: .12em;
     text-transform: uppercase;
@@ -389,33 +483,49 @@ h2 {
 }
 
 .tTitle {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--ink);
 }
 
 .tDesc {
     margin-top: 6px;
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     font-size: 13px;
     color: var(--muted);
     line-height: 1.45;
 }
 
+/* 
+=========================================================
+   FORMS (RSVP)
+========================================================= 
+*/
 
-/* FORMS */
 #rsvp {
-    margin-top: 60px;
+    margin-top: 50px;
+}
+
+#rsvpForm {
+    margin-top: 54px;
+}
+
+#specialField {
+    resize: vertical;
 }
 
 .field {
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-top: 10px;
+
+}
+
+.customMargin {
+    margin-top: 30px;
 }
 
 label {
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     color: var(--muted);
     font-size: 12px;
     letter-spacing: .08em;
@@ -423,7 +533,7 @@ label {
 
 input[type="text"],
 textarea {
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     padding: 12px 12px;
     border-radius: 14px;
     border: 1px solid var(--line);
@@ -441,7 +551,7 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px 14px;
-    margin-top: 8px;
+
 }
 
 .check {
@@ -461,54 +571,6 @@ textarea {
     grid-template-columns: 1fr;
 }
 
-/* GIFTS */
-#gifts {
-    margin-top: 60px;
-}
-
-.giftGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.giftRow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Wyrównanie w poziomie */
-    gap: 12px;
-    padding: 12px;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    width: 100%;
-    max-width: 250px;
-    margin: 0 auto;
-    /* Wyrównanie całości do środka */
-}
-
-.giftIcon,
-.giftIconRight {
-    font-size: 20px;
-}
-
-
-.giftText {
-    font-family: var(--sans);
-    font-size: 14px;
-    color: var(--ink);
-    flex-grow: 1;
-    /* Pozwala na rozciąganie tekstu do wypełnienia dostępnej przestrzeni */
-    text-align: center;
-    /* Wyśrodkowanie tekstu */
-}
-
-.giftIconRight {
-    margin-left: auto;
-}
 
 footer {
     text-align: center;
@@ -517,6 +579,13 @@ footer {
     font-size: 12px;
     margin-top: 18px;
 }
+
+
+/* 
+=========================================================
+   BTN
+========================================================= 
+*/
 
 .btnRow {
     display: flex;
@@ -536,7 +605,7 @@ footer {
     border: 1px solid var(--line);
     background: #fff;
     color: var(--ink);
-    font-family: var(--sans);
+    font-family: var(--ui-font);
     font-size: 14px;
 }
 
@@ -550,11 +619,172 @@ footer {
     background: transparent;
 }
 
-.giftIcon img,
-.giftIconRight img {
-    width: 32px;
-    /* Możesz zmienić rozmiar */
-    height: 32px;
-    /* Proporcjonalnie */
-    object-fit: contain;
+.whatsapp-btn-center {
+    display: flex;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 30px auto;
+
+    padding: 12px 18px;
+    border-radius: 10px;
+
+    background: #25D366;
+    color: #0b3d1f;
+    text-decoration: none;
+
+    font-family: var(--ui-font, system-ui, sans-serif);
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.whatsapp-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+}
+
+.whatsapp-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+}
+
+.wa-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wa-text {
+    white-space: nowrap;
+}
+
+/* 
+=========================================================
+   ALCOHOL CHECK BUTTON
+========================================================= 
+*/
+.checkbox-wrapper-4 * {
+    box-sizing: border-box;
+}
+
+.checkbox-wrapper-4 .cbx {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.checkbox-wrapper-4 .cbx:not(:last-child) {
+    margin-right: 6px;
+}
+
+.checkbox-wrapper-4 .cbx:hover {
+    background: rgba(0, 119, 255, 0.06);
+}
+
+.checkbox-wrapper-4 .cbx span {
+    float: left;
+    vertical-align: middle;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-4 .cbx span:first-child {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    transform: scale(1);
+    border: 1px solid #cccfdb;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 1px rgba(0, 16, 75, 0.05);
+}
+
+.checkbox-wrapper-4 .cbx span:first-child svg {
+    position: absolute;
+    top: 3px;
+    left: 2px;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 16px;
+    stroke-dashoffset: 16px;
+    transition: all 0.3s ease;
+    transition-delay: 0.1s;
+    transform: translate3d(0, 0, 0);
+}
+
+.checkbox-wrapper-4 .cbx span:last-child {
+    padding-left: 8px;
+    line-height: 18px;
+}
+
+.checkbox-wrapper-4 .cbx:hover span:first-child {
+    border-color: #07f;
+}
+
+.checkbox-wrapper-4 .inp-cbx {
+    position: absolute;
+    visibility: hidden;
+}
+
+.checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child {
+    background: #07f;
+    border-color: #07f;
+    animation: wave-4 0.4s ease;
+}
+
+.checkbox-wrapper-4 .inp-cbx:checked+.cbx span:first-child svg {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper-4 .inline-svg {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+
+@media screen and (max-width: 640px) {
+    .checkbox-wrapper-4 .cbx {
+        width: 100%;
+        display: inline-block;
+    }
+}
+
+@-moz-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-webkit-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@-o-keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
+}
+
+@keyframes wave-4 {
+    50% {
+        transform: scale(0.9);
+    }
 }

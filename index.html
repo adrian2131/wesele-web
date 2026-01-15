@@ -14,45 +14,37 @@
 <body>
     <div class="floral" aria-hidden="true"></div>
 
-    <!-- HERO full-screen -->
-    <section class="hero heroPhoto" id="top">
-        <div class="heroCard">
-            <div class="heroKicker great-vibes-regular">Save the date</div>
+    <!-- Cover full-screen -->
+    <section class="cover coverBG">
+        <div class="coverCard">
+            <div class="coverTitle great-vibes">Save the date</div>
 
-            <div class="heroNames">NICOLE &amp; ADRIAN</div>
+            <div class="coverNames">NICOLE &amp; ADRIAN</div>
 
-            <div class="heroSub">Bierzemy ślub!</div>
+            <div class="coverSubtitle">Bierzemy ślub!</div>
 
-            <div class="heroDate">SIERPIEŃ&nbsp;&nbsp;|&nbsp;&nbsp;15&nbsp;&nbsp;|&nbsp;&nbsp;SOBOTA</div>
+            <div class="coverDate">SIERPIEŃ&nbsp;&nbsp;|&nbsp;&nbsp;15&nbsp;&nbsp;|&nbsp;&nbsp;SOBOTA</div>
 
-            <div class="heroYear">2026</div>
+            <div class="coverYear">2026</div>
         </div>
 
-        <button class="heroScrollHint" type="button" data-scrollto="#countdown">
-            <span class="hintText">Potwierdź obecność</span>
-            <span class="hintArrow" aria-hidden="true">⌄</span>
+        <button class="coverScrollHint" type="button" data-scrollto="#rsvp">
+            <span class="coverText">dołącz do nas</span>
+            <span class="coverArrow" aria-hidden="true">⌄</span>
         </button>
     </section>
 
     <div class="wrap">
         <!-- COUNTDOWN -->
         <section id="countdown">
-            <div class="kicker">ODLICZANIE</div>
-            <h2 class="great-vibes-regular">Do naszego dnia zostało</h2>
+            <div class="label">ODLICZANIE</div>
+            <h2 class="title great-vibes">Do naszego dnia zostało</h2>
             <div class="countdownGrid">
                 <!-- LICZBY -->
-                <div class="cdBox">
-                    <div class="cdNum" id="cdDays">--</div>
-                </div>
-                <div class="cdBox">
-                    <div class="cdNum" id="cdHours">--</div>
-                </div>
-                <div class="cdBox">
-                    <div class="cdNum" id="cdMins">--</div>
-                </div>
-                <div class="cdBox">
-                    <div class="cdNum" id="cdSecs">--</div>
-                </div>
+                <div class="cdNum cdBox" id="cdDays">--</div>
+                <div class="cdNum cdBox" id="cdHours">--</div>
+                <div class="cdNum cdBox" id="cdMins">--</div>
+                <div class="cdNum cdBox" id="cdSecs">--</div>
 
                 <!-- OPISY -->
                 <div class="cdLabel">DNI</div>
@@ -62,30 +54,26 @@
             </div>
         </section>
 
-        <!-- LOCATION (podmień linki na kościół i salę) -->
 
+        <!-- LOCATION -->
         <section id="location">
-            <h2 class="great-vibes-regular">Miejsce</h2>
-            <p class="lead">Gdzie odbędzie się ceremonia i wesele</p>
-
+            <h2 class="title great-vibes">Miejsce</h2>
+            <p class="subtitle">Gdzie odbędzie się ceremonia i wesele</p>
             <div class="locCard">
-
                 <!-- BLOK: CEREMONIA -->
                 <div class="locBlock">
+                    <!-- ikonka pineski -->
                     <div class="locIcon" aria-hidden="true">
-                        <!-- prosta ikonka pinezki (SVG) -->
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"
                             stroke-width="1.8">
                             <path d="M12 21s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11z"></path>
                             <circle cx="12" cy="10" r="2.4"></circle>
                         </svg>
                     </div>
-
-                    <div class="locTitle ">Ceremonia ślubna</div>
-
+                    <div class="locTitle">Ceremonia ślubna</div>
                     <div class="locAddress">
-                        <div class="locLine">Kościół pw. św. Ducha</div>
-                        <div class="locLine muted">Fryderyka Chopina 16, 74-503 Moryń</div>
+                        <div>Kościół pw. św. Ducha</div>
+                        <div class="locLine">Fryderyka Chopina 16, 74-503 Moryń</div>
                     </div>
 
                     <div class="locMeta">
@@ -101,7 +89,7 @@
                     </div>
 
                     <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2409.012079992008!2d14.39807183246262!3d52.85818445669301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47076081b2eb59b3%3A0x788ded3b148cfb01!2zS2_Fm2Npw7PFgiBwdy4gxZt3LiBEdWNoYQ!5e0!3m2!1sen!2sde!4v1767872798212!5m2!1sen!2sde">
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3735.850760947109!2d14.3980718!3d52.8581845!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47076081b2eb59b3%3A0x788ded3b148cfb01!2zS2_Fm2Npw7PFgiBwdy4gxZt3LiBEdWNoYQ!5e1!3m2!1sen!2sde!4v1768476815552!5m2!1sen!2sde">
                     </iframe>
 
                     <div class="btnRow">
@@ -125,12 +113,10 @@
                     </div>
 
                     <div class="locTitle">Przyjęcie weselne</div>
-
                     <div class="locAddress">
                         <div class="locLine">Ranczo Radzicz</div>
                         <div class="locLine muted">Radzicz 2a, 74-311 Różańsko</div>
                     </div>
-
                     <div class="locMeta">
                         <span class="metaItem">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
@@ -141,11 +127,9 @@
                             Po ceremonii
                         </span>
                     </div>
-
                     <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2409.1938665030034!2d14.73392591305827!3d52.85490951126292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703bd24747ae4ef%3A0x50bc57395d0fa23a!2sRanczo%20Radzicz!5e0!3m2!1sen!2sde!4v1767872886107!5m2!1sen!2sde">
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1762.9431254848025!2d14.736434790596954!3d52.85489708822168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4703bd24747ae4ef%3A0x50bc57395d0fa23a!2sRanczo%20Radzicz!5e1!3m2!1sen!2sde!4v1768477413300!5m2!1sen!2sde">
                     </iframe>
-
                     <div class="btnRow">
                         <a class="btn primary" target="_blank" rel="noopener"
                             href="https://maps.app.goo.gl/6ACznvs87622eh839">
@@ -160,8 +144,8 @@
 
         <!-- PROGRAM -->
         <section id="schedule">
-            <h2 class="great-vibes-regular">Program dnia</h2>
-            <p class="lead">Nasz dzień krok po kroku</p>
+            <h2 class="title great-vibes">Program dnia</h2>
+            <p class="subtitle">Nasz dzień krok po kroku</p>
 
             <div class="timeline">
 
@@ -228,71 +212,108 @@
             </div>
         </section>
 
-
-        <!-- GIFTS -->
-        <section id="gifts">
-            <h2 class="great-vibes-regular">Podziękowania</h2>
-            <p class="lead">Najlepszym prezentem jest Wasza obecność. Jeśli mimo to chcecie nam coś podarować</p>
-
-            <div class="giftGrid">
-                <div class="giftRow">
-                    <div class="giftIcon">
-                        <img src="images/alkohol.png" alt="Wino" />
-
-                    </div>
-                    <div class="giftText">Zamiast</div>
-                    <div class="giftIconRight">
-                        <img src="images/kwiaty.png" alt="Brak kwiatów" />
-                    </div>
-                </div>
-
-                <div class="giftRow">
-                    <div class="giftIcon">
-                        <img src="images/koperta.png" alt="Koperta" />
-                    </div>
-                    <div class="giftText">Zamiast</div>
-                    <div class="giftIconRight">
-                        <img src="images/prezent.png" alt="Brak prezentów" />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
         <!-- RSVP -->
         <section id="rsvp">
-            <h2 class="great-vibes-regular">Potwierdź obecność</h2>
-            <p class="lead">
-                Daj nam znać, czy będziesz. Pomoże nam to w organizacji.
+            <h2 class="title great-vibes">Dołącz do nas</h2>
+            <p class="subtitle">
+                Dołącz do naszej grupy na WhatsApp, aby być na bieżąco z wydarzeniami w ciągu dnia.
+            </p>
+            <div class="whatsapp-btn-center">
+                <a href="https://chat.whatsapp.com/https://chat.whatsapp.com/HwXOa16yB8X237Bp80U9dN"
+                    class="whatsapp-btn" target="_blank" rel="noopener">
+                    <span class="wa-icon" aria-hidden="true">
+                        <!-- ikona WhatsApp (SVG inline) -->
+                        <svg width="18" height="18" viewBox="0 0 32 32">
+                            <path fill="currentColor"
+                                d="M16.003 3C9.384 3 4 8.385 4 15.003c0 2.648.87 5.09 2.34 7.067L4 29l7.14-2.275A11.94 11.94 0 0 0 16.003 27C22.62 27 28 21.616 28 15.003 28 8.385 22.62 3 16.003 3zm0 21.75c-2.06 0-4.07-.554-5.84-1.602l-.418-.246-4.237 1.35 1.383-4.12-.27-.43A9.7 9.7 0 1 1 16.003 24.75zm5.52-7.2c-.303-.15-1.792-.884-2.07-.985-.276-.102-.477-.15-.677.15-.2.3-.777.985-.953 1.185-.176.2-.352.225-.654.075-.303-.15-1.278-.47-2.434-1.497-.9-.802-1.507-1.793-1.684-2.095-.176-.3-.02-.462.132-.61.135-.134.302-.352.452-.527.15-.176.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.677-1.632-.927-2.235-.243-.585-.49-.505-.677-.515l-.577-.01c-.2 0-.525.075-.8.375-.276.3-1.05 1.025-1.05 2.5s1.075 2.9 1.225 3.1c.15.2 2.115 3.225 5.125 4.52.716.31 1.275.495 1.71.633.718.228 1.37.195 1.885.118.575-.086 1.792-.732 2.045-1.44.253-.707.253-1.312.177-1.44-.075-.125-.275-.2-.575-.35z" />
+                        </svg>
+                    </span>
+                    <span class="wa-text">Dołącz do grupy WhatsApp</span>
+                </a>
+            </div>
+            <p class="subtitle">
+                Jeśli chcesz, daj nam znać, co najbardziej lubisz pić, a my postaramy się, aby Ci tego nie zabrakło.
             </p>
 
+            <!-- symbol definiujemy raz -->
+            <svg class="inline-svg" style="position:absolute; width:0; height:0; overflow:hidden;" aria-hidden="true">
+                <symbol id="check-4" viewBox="0 0 12 10">
+                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                </symbol>
+            </svg>
+
             <form id="rsvpForm" method="post" action="#">
+                <!-- Imię i nazwisko -->
                 <div class="field">
-                    <label for="firstName">Imię *</label>
-                    <input id="firstName" name="firstName" type="text" required placeholder="Np. Jan" />
-                    <label for="surName">Nazwisko *</label>
-                    <input id="surName" name="surName" type="text" required placeholder="Np. Kowalski" />
+                    <label for="name">Jak możemy Cię zapisać? *</label>
+                    <input id="name" name="name" type="text" autocomplete="name" placeholder="Np. Jan Kowalski" />
                 </div>
 
-                <div class="field">
-                    <label>Daj znać.</label>
+                <!-- Alkohol -->
+                <div class="field customMargin" id="alcoholField">
+                    <label>Co najchętniej wypijesz?</label>
+
                     <div class="checks oneCol">
-                        <label class="check"><input type="radio" name="alcohol" value="Wino" required> Będę</label>
-                        <label class="check"><input type="radio" name="alcohol" value="Bimber"> Nie Będę</label>
+                        <div class="checkbox-wrapper-4">
+                            <input class="inp-cbx" id="wino" name="alcohol[]" value="Wino" type="checkbox" />
+                            <label class="cbx" for="wino">
+                                <span><svg width="12" height="10">
+                                        <use xlink:href="#check-4"></use>
+                                    </svg></span>
+                                <span>Wino</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-wrapper-4">
+                            <input class="inp-cbx" id="drink" name="alcohol[]" value="Drink" type="checkbox" />
+                            <label class="cbx" for="drink">
+                                <span><svg width="12" height="10">
+                                        <use xlink:href="#check-4"></use>
+                                    </svg></span>
+                                <span>Drink</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-wrapper-4">
+                            <input class="inp-cbx" id="bimber" name="alcohol[]" value="Bimber (zwykły/smakowy)"
+                                type="checkbox" />
+                            <label class="cbx" for="bimber">
+                                <span><svg width="12" height="10">
+                                        <use xlink:href="#check-4"></use>
+                                    </svg></span>
+                                <span>Bimber – zwykły / smakowy</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-wrapper-4">
+                            <input class="inp-cbx" id="wodka" name="alcohol[]" value="Wódka" type="checkbox" />
+                            <label class="cbx" for="wodka">
+                                <span><svg width="12" height="10">
+                                        <use xlink:href="#check-4"></use>
+                                    </svg></span>
+                                <span>Wódka</span>
+                            </label>
+                        </div>
+
+                        <div class="checkbox-wrapper-4">
+                            <input class="inp-cbx" id="special" name="alcohol[]" value="1" type="checkbox" />
+                            <label class="cbx" for="special">
+                                <span><svg width="12" height="10">
+                                        <use xlink:href="#check-4"></use>
+                                    </svg></span>
+                                <span>Coś specjalnego</span>
+                            </label>
+                        </div>
+
+                        <div id="specialField" class="field" style="display:none;">
+                            <textarea id="drinkmessage" name="drinkmessage" placeholder="Co to za napój?"></textarea>
+                        </div>
                     </div>
                 </div>
 
-                <div class="field">
-                    <label>Co wolisz pić? (zaznacz jedną opcję)</label>
-                    <div class="checks oneCol">
-                        <label class="check"><input type="radio" name="alcohol" value="Wino" required> Wino</label>
-                        <label class="check"><input type="radio" name="alcohol" value="Bimber"> Bimber</label>
-                        <label class="check"><input type="radio" name="alcohol" value="Wódka"> Wódka</label>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label for="message">Wiadomość (opcjonalnie)</label>
+                <!-- Wiadomość -->
+                <div class="field customMargin">
+                    <label for="message">Kilka słów do nas (opcjonalnie)</label>
                     <textarea id="message" name="message" placeholder="Napisz kilka słów…"></textarea>
                 </div>
 
@@ -300,16 +321,17 @@
                     <button class="btn primary" type="submit">Wyślij</button>
                 </div>
 
-                <div id="formStatus" class="lead" style="margin-top:12px; display:none;"></div>
+                <div id="formStatus" class="subtitle" style="margin-top:12px; display:none;"></div>
             </form>
         </section>
 
         <footer>
-            <div>© Nicole & Adrian</div>
+            <div class="great-vibes-regular">Nicole & Adrian</div>
+            <div class="great-vibes-regular">15.08.2026</div>
         </footer>
-    </div>
 
-    <script src="app.js" defer></script>
+
+        <script src="app.js" defer></script>
 </body>
 
 </html>
