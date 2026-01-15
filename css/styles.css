@@ -121,7 +121,7 @@ section {
 
 /* Cover full-screen */
 .cover {
-    min-height: 100dvh;
+    min-height: 100svh;
     max-width: var(--container-max);
     display: flex;
     flex-direction: column;
@@ -206,7 +206,7 @@ section {
 }
 
 .coverNames {
-    font-size: 24px;
+    font-size: 20px;
     letter-spacing: .18em;
     line-height: 1.2;
     margin-bottom: 20px;

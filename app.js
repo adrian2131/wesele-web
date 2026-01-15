@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             status.style.display = "block";
             status.textContent = "Wybierz przynajmniej jedną opcję w sekcji napojów.";
-            alcoholField?.scrollIntoView({ behavior: "smooth", block: "center" });
             return;
         }
 
